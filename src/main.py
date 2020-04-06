@@ -1,14 +1,16 @@
 import sys
-from controller.argcontroller import load_bible, assignTask
+from controller.argcontroller import init_bible, argParse, tasks
 from view.viewverses import showText
 import clint
 
 
 def main():
     args = sys.argv
-    bible = load_bible()
-    lista = assignTask(args, bible)
-    showText(lista[1], lista[2], lista[3], lista[4])
+    biblia = init_bible()
+    showText(tasks(argParse(args, biblia)))
+
+    #lista = assignTask(args, bible)
+    #showText(lista[1], lista[2], lista[3], lista[4])
 
     # for arg in args:
     #     # Se for 1 == argumento de nome do livro
