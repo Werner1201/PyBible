@@ -8,15 +8,15 @@ def showText(livro):
     index = inicio + 1
     capIndex = 0
     with indent(2, quote=' '):
-        puts(colored.green("{}".format(nome)))
+        puts("{}".format(nome))
         for capitulo in livro.capitulos:
             if capIndex != capitulo.get_index():
                 index = 1
             capIndex = capitulo.get_index()
             for verso in capitulo.versos:
                 with indent(4, quote=' '):
-                    puts(colored.blue("{}:{}".format(
-                        capitulo.get_index() + 1, index)) + " " + str(verso.get_conteudo()))
+                    puts("{}:{}".format(capitulo.get_index() +
+                                        1, index) + " " + 'éõãêÇ')
                     index += 1
 
     print()

@@ -1,23 +1,25 @@
-
-from clint.textui import columns
-from clint.textui import puts, colored
-import sys
-import os
-
-sys.path.insert(0, os.path.abspath('..'))
+from pypager.source import GeneratorSource
+from pypager.pager import Pager
+from prompt_toolkit.token import ZeroWidthEscape
+import io
 
 
-lorem = 'Lorem ipsum dolor sit amet, consehdfhdfhdfhdfhdfhctetur adi pisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+def generate_a_lot_of_content():
+    """
+    This is a function that generates content on the fly.
+    It's called when the pager needs to display more content.
+    """
+    # counter = 0
+    # while counter < 10:
+    #     yield [(counter, 'line: %i\n' % counter)]
+    #     counter += 1
+    output = io.StringIO(newline="\n")
+    output.write("Primeira Linha")
+    output.write("Segunda Linha")
+    return output
+
 
 if __name__ == '__main__':
-    # puts(min_width('test\nit', 20) + ' me')
-    # puts(max_width(lorem, 20) + ' me')
-
-    # print max_width(lorem, 45)
-
-    col = 60
-
-    puts(columns([(colored.red('Column 1')), col], [(colored.green('Column Two')), None],
-                 [(colored.magenta('Column III')), col]))
-    puts(columns(['hi there my name is kenneth and this is a columns', col], [
-         lorem, None], ['kenneths', col]))
+    source = GeneratorSource(generate_a_lot_of_content())
+    p = Pager(source)
+    p.run()
