@@ -16,7 +16,7 @@ def showText(livro):
             for verso in capitulo.versos:
                 with indent(4, quote=' '):
                     puts("{}:{}".format(capitulo.get_index() +
-                                        1, index) + " " + 'éõãêÇ')
+                                        1, index) + " " + verso.get_conteudo())
                     index += 1
 
     print()
