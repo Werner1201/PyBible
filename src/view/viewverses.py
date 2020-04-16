@@ -2,7 +2,7 @@ from __future__ import print_function
 from clint.textui import puts, colored, indent
 
 
-def showText(livro):
+def showText(livro) -> None:
     nome = livro.nome
     inicio = livro.capitulos[0].versos[0].get_index()
     index = inicio + 1

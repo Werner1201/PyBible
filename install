@@ -1,0 +1,3 @@
+#!/bin/bash
+chmod u+x pybible
+pip install -r requirements.txt

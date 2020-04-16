@@ -1,0 +1,4 @@
+#!/bin/bash
+retry=$(readlink -f ./src/main.py)
+echo $retry
+python "$retry" $1 $2 $3 | less
